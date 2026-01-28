@@ -2,14 +2,16 @@ import { z } from "zod";
 
 export const createPasteSchema = z.object({
   content: z.string().min(1, "Content cannot be empty"),
-  maxViews: z
+
+  ttl_seconds: z
     .number()
-    .int("maxViews must be an integer")
-    .positive("maxViews must be greater than 0")
+    .int("ttl_seconds must be an integer")
+    .min(1, "ttl_seconds must be >= 1")
     .optional(),
 
-  expiresAt: z
-    .string()
-    .datetime("expiresAt must be a valid ISO date")
+  max_views: z
+    .number()
+    .int("max_views must be an integer")
+    .min(1, "max_views must be >= 1")
     .optional(),
 });

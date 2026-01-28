@@ -1,7 +1,8 @@
-import { Sequelize, DataTypes } from "sequelize";
+import { PasteAttributes, PasteCreationAttributes } from "interface/pastes.interface";
+import { Sequelize, DataTypes, Model } from "sequelize";
 
 export default (sequelize: Sequelize) => {
-  const Paste = sequelize.define(
+  const Paste = sequelize.define<Model<PasteAttributes, PasteCreationAttributes>>(
     "Paste",
     {
       id: {
@@ -14,11 +15,11 @@ export default (sequelize: Sequelize) => {
         type: DataTypes.TEXT,
         allowNull: false,
       },
-      viewCount: {
+      viewcount: {
         type: DataTypes.INTEGER,
         defaultValue: 0,
       },
-      maxViews: {
+      max_views: {
         type: DataTypes.INTEGER,
         allowNull: true,
       },
