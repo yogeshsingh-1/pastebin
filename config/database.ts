@@ -16,12 +16,6 @@ const databaseOption: Record<string, string> = {
   databasePassword: process.env.DATABASE_PASSWORD ?? "MyGSTCafe@9088",
   databseHost: process.env.DATABASE_HOST ?? "localhost",
 };
-// console.log(
-//   databaseOption.databaseName,
-//   databaseOption.databaseUsername,
-//   databaseOption.databasePassword,
-//   databaseOption.databseHost
-// );
 
 const sequelize = new Sequelize(
   databaseOption.databaseName,
